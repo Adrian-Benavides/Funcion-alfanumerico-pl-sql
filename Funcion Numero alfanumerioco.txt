@@ -1,0 +1,387 @@
+CREATE OR REPLACE FUNCTION f_alfanum (p_texto VARCHAR2) RETURN VARCHAR2
+is
+ v_num VARCHAR2(10);
+ v_texto VARCHAR2(10);
+ v_num_ant VARCHAR2(10);
+ v_largo NUMBER(2);
+ v_return VARCHAR2(10);
+BEGIN
+ v_num := p_texto;
+ v_num_ant :='';
+ v_largo := LENGTH(v_num);
+ v_return :=SUBSTR(v_num,1,LENGTH(v_num)-1);
+ 
+    FOR fp IN REVERSE 1..v_largo LOOP
+        v_texto := SUBSTR(v_num,fp,1);
+        CASE v_texto
+        
+        --------------0----------------------
+            WHEN '0' THEN  
+                v_num_ant := '1' || v_num_ant;
+                IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------1----------------------
+            WHEN '1' THEN  
+                v_num_ant := '2' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------2----------------------
+            WHEN '2' THEN  
+                v_num_ant := '3' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------3----------------------
+            WHEN '3' THEN  
+                v_num_ant := '4' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------4----------------------
+            WHEN '4' THEN  
+                v_num_ant := '5' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+               EXIT;
+                
+                
+         --------------5----------------------
+            WHEN '5' THEN  
+                v_num_ant := '6' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------6----------------------
+            WHEN '6' THEN  
+                v_num_ant := '7' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+               EXIT;
+                
+         --------------7----------------------
+            WHEN '7' THEN  
+                v_num_ant := '8' || v_num_ant;
+                IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+               EXIT;
+                
+         --------------8----------------------
+            WHEN '8' THEN  
+                v_num_ant := '9' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------9----------------------
+            WHEN '9' THEN  
+                v_num_ant := 'A' || v_num_ant;
+                 IF fp = 1 THEN
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------A----------------------
+            WHEN 'A' THEN  
+                v_num_ant := 'B' || v_num_ant;
+                 IF fp = 1 THEN
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------B----------------------
+            WHEN 'B' THEN  
+                v_num_ant := 'C' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------C----------------------
+            WHEN 'C' THEN  
+                v_num_ant := 'D' || v_num_ant;
+                 IF fp = 1 THEN
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+              EXIT;
+                
+         --------------D----------------------
+            WHEN 'D' THEN  
+                v_num_ant := 'E' || v_num_ant;
+                 IF fp = 1 THEN
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+               EXIT;
+                
+         --------------E----------------------
+            WHEN 'E' THEN  
+                v_num_ant := 'F' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+               EXIT;
+                
+         --------------F----------------------
+            WHEN 'F' THEN  
+                v_num_ant := 'G' || v_num_ant;
+                IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------G----------------------
+            WHEN 'G' THEN  
+                v_num_ant := 'H' || v_num_ant;
+                 IF fp = 1 THEN
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+               EXIT;
+                
+         --------------H----------------------
+            WHEN 'H' THEN  
+                v_num_ant := 'I' || v_num_ant;
+                 IF fp = 1 THEN
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------I----------------------
+            WHEN 'I' THEN  
+                v_num_ant := 'J' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------J----------------------
+            WHEN 'J' THEN  
+                v_num_ant := 'K' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+               EXIT;
+                
+         --------------K----------------------
+            WHEN 'K' THEN  
+                v_num_ant := 'L' || v_num_ant;
+                 IF fp = 1 THEN
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------L----------------------
+            WHEN 'L' THEN  
+                v_num_ant := 'M' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------M----------------------
+            WHEN 'M' THEN  
+                v_num_ant := 'N' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------N----------------------
+            WHEN 'N' THEN  
+                v_num_ant := 'O' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------O----------------------
+            WHEN 'O' THEN  
+                v_num_ant := 'P' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------P----------------------
+            WHEN 'P' THEN  
+                v_num_ant := 'Q' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------Q----------------------
+            WHEN 'Q' THEN  
+                v_num_ant := 'R' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------R----------------------
+            WHEN 'R' THEN  
+                v_num_ant := 'S' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------S----------------------
+            WHEN 'S' THEN  
+                v_num_ant := 'T' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------T----------------------
+            WHEN 'T' THEN  
+                v_num_ant := 'U' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------U----------------------
+            WHEN 'U' THEN  
+                v_num_ant := 'V' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+              EXIT;
+                
+         --------------V----------------------
+            WHEN 'V' THEN  
+                v_num_ant := 'W' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------W----------------------
+            WHEN 'W' THEN  
+                v_num_ant := 'X' || v_num_ant;
+                 IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------X----------------------
+            WHEN 'X' THEN  
+                v_num_ant := 'Y' || v_num_ant;
+                IF fp = 1 THEN
+                 v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+         --------------Y----------------------
+            WHEN 'Y' THEN  
+                v_num_ant := 'Z' || v_num_ant;
+                IF fp = 1 THEN
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                ELSE
+                v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;
+                EXIT;
+                
+        -------------Z-----------------------  
+            WHEN 'Z' THEN 
+               
+                IF fp = 1 THEN
+                  
+                  v_return :=  '10'|| v_num_ant;
+                ELSE
+                    v_num_ant := '0' || v_num_ant ;
+                    v_return := SUBSTR(v_return,1,fp-1) || v_num_ant;
+                END IF;   
+                
+            
+        END CASE;
+ 
+ 
+    END LOOP;
+    return v_return;
+
+END f_alfanum;
